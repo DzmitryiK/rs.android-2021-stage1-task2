@@ -1,9 +1,19 @@
 package subtask2
 
+import java.lang.StringBuilder
+
 class Abbreviation {
 
-    // TODO: Complete the following function
     fun abbreviationFromA(a: String, b: String): String {
-        throw NotImplementedError("Not implemented")
+        var rg:StringBuilder = StringBuilder()
+        rg.append(".*?")
+        for (i in 0..b.length-1) {
+            rg.append("("+b[i].toUpperCase()+").*?")
+        }
+
+        if (a.toUpperCase().matches(rg.toString().toRegex()))
+            return "YES"
+        else
+            return "NO"
     }
 }
